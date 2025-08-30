@@ -13,6 +13,7 @@ import java.time.Instant;
 public class DebitoEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idDebito;
     private StatusDebito status;
     private Instant criadoEm;

@@ -22,18 +22,18 @@ class DebitoRepositoryTest {
     @Test
     void shouldSaveAndFindDebitoEntity() {
         DebitoEntity debito = new DebitoEntity();
-        debito.setIdDebito(123L);
         debito.setStatus(StatusDebito.PENDENTE);
         debito.setCriadoEm(Instant.now());
 
         DebitoEntity savedDebito = debitoRepository.save(debito);
-        Optional<DebitoEntity> foundDebito = debitoRepository.findById(123L);
+        Optional<DebitoEntity> foundDebito = debitoRepository.findById(savedDebito.getIdDebito());
 
         assertThat(savedDebito).isNotNull();
-        assertThat(savedDebito.getIdDebito()).isEqualTo(123L);
+        assertThat(savedDebito.getIdDebito()).isNotNull();
         assertThat(savedDebito.getStatus()).isEqualTo(StatusDebito.PENDENTE);
         assertThat(foundDebito).isPresent();
         assertThat(foundDebito.get().getStatus()).isEqualTo(StatusDebito.PENDENTE);
+        assertThat(foundDebito.get().getIdDebito()).isEqualTo(savedDebito.getIdDebito());
     }
 
     @Test
