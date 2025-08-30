@@ -1,4 +1,4 @@
-package com.example.debtcancellation.dto;
+package com.example.debtcancellation.adapters.in.controller.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

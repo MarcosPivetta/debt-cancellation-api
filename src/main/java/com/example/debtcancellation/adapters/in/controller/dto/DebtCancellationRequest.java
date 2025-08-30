@@ -1,4 +1,4 @@
-package com.example.debtcancellation.dto;
+package com.example.debtcancellation.adapters.in.controller.dto;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;

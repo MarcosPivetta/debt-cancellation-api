@@ -2,8 +2,8 @@ package com.example.debtcancellation.adapters.in.controller;
 
 import com.example.debtcancellation.application.core.domain.ResultadoCancelamento;
 import com.example.debtcancellation.application.ports.in.CancelarDebitoInputPort;
-import com.example.debtcancellation.dto.DebtCancellationRequest;
-import com.example.debtcancellation.dto.DebtCancellationResponse;
+import com.example.debtcancellation.adapters.in.controller.dto.DebtCancellationRequest;
+import com.example.debtcancellation.adapters.in.controller.dto.DebtCancellationResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
