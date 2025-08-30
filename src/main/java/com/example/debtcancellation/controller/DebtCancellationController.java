@@ -4,20 +4,16 @@ import com.example.debtcancellation.dto.DebtCancellationRequest;
 import com.example.debtcancellation.dto.DebtCancellationResponse;
 import com.example.debtcancellation.service.DebtCancellationService;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/debts")
+@RequiredArgsConstructor
 public class DebtCancellationController {
 
     private final DebtCancellationService debtCancellationService;
-
-    @Autowired
-    public DebtCancellationController(DebtCancellationService debtCancellationService) {
-        this.debtCancellationService = debtCancellationService;
-    }
 
     @PostMapping("/{id}/cancel")
     public ResponseEntity<DebtCancellationResponse> cancelDebt(
