@@ -22,16 +22,8 @@ public class CancelarDebitoController {
     @PostMapping("/cancel")
     public ResponseEntity<DebtCancellationResponse> cancelDebt(
             @Valid @RequestBody DebtCancellationRequest request) {
-        
-        Debito debito = debtCancellationRequestMapper.toDebito(request);
-        ResultadoCancelamento resultado = cancelarDebitoInputPort.cancelar(debito);
-        
+        ResultadoCancelamento resultado = cancelarDebitoInputPort.cancelar(debtCancellationRequestMapper.toDebito(request));
         DebtCancellationResponse response = mapToResponse(resultado);
-        
-        if (!resultado.cancelado()) {
-            return ResponseEntity.badRequest().body(response);
-        }
-        
         return ResponseEntity.ok(response);
     }
     
