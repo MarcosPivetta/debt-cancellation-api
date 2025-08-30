@@ -15,12 +15,9 @@ public class DebtCancellationController {
 
     private final DebtCancellationService debtCancellationService;
 
-    @PostMapping("/{id}/cancel")
+    @PostMapping("/cancel")
     public ResponseEntity<DebtCancellationResponse> cancelDebt(
-            @PathVariable("id") Long debtId,
             @Valid @RequestBody DebtCancellationRequest request) {
-        
-        request.setDebtId(debtId);
         
         DebtCancellationResponse response = debtCancellationService.cancelDebt(request);
         
