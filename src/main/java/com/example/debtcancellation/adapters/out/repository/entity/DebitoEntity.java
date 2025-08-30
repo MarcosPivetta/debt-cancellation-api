@@ -13,8 +13,7 @@ import java.time.Instant;
 public class DebitoEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String idDebito;
+    private Long idDebito;
     private StatusDebito status;
     private Instant criadoEm;
 }
