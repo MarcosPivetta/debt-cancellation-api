@@ -12,12 +12,12 @@ public record CancelarDebitoUseCase(
         ValidarDebitoOutputPort validarDebitoOutputPort) implements CancelarDebitoInputPort {
 
     @Override
-    public ResultadoCancelamento executar(Long idDebito) {
-        Debito debito = validarDebitoOutputPort.buscarDebito(idDebito);
-        DecisaoCancelamento decisao = politicaCancelamentoDebito.podeCancelar(debito);
+    public ResultadoCancelamento cancelar(Debito debito) {
+        Debito debitoValidado = validarDebitoOutputPort.buscarDebito(debito.idDebito());
+        DecisaoCancelamento decisao = politicaCancelamentoDebito.podeCancelar(debitoValidado);
         
         return new ResultadoCancelamento(
-            idDebito,
+            debito.idDebito(),
             decisao.status(),
             decisao.motivo()
         );
