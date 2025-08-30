@@ -18,7 +18,7 @@ public record CancelarDebitoUseCase(
     public ResultadoCancelamento cancelar(Long idDebito) {
         DebitoEntity debitoEntity = findDebitoByIdInputPort.findDebitoById(idDebito);
         Debito debito = debitoEntityMapper.toDebito(debitoEntity);
-        DecisaoCancelamento decisao = politicaCancelamentoDebito.podeCancelar(debito.status());
+        DecisaoCancelamento decisao = politicaCancelamentoDebito.podeCancelar(debito);
         
         return new ResultadoCancelamento(
             debito.idDebito(),
